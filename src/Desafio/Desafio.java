@@ -34,11 +34,31 @@ public class Desafio {
             opcao = leitura.nextInt();
 
             if(opcao == 1) {
+                // Consultar saldo
                 System.out.println("O saldo atualizado é " + saldo);
             } else if(opcao == 2) {
+                // Transferir valor
                 System.out.println("Qual e o valor que deseja transferir");
-                //
-                // double valor = leitura.nextDouble();
+                // vai receber o valor que for lido pelo Scanner
+                double valor = leitura.nextDouble();
+
+                // se o valor for maior que o saldo não deve haver transferencia caso o valor seja menor que o saldo vai ter a transferencia
+                if (valor > saldo){
+                    System.out.println("Saudo insuficiente para realizar transferência");
+                } else {
+                    // fazendo transferencia
+                    saldo -= valor;
+                    System.out.println("Saldo atualizado " + saldo);
+                }
+            } else if (opcao == 3) {
+                // Receber valor
+                System.out.println("Valor recebido ");
+                // vai receber o valor que for lido pelo Scanner
+                double valor = leitura.nextDouble();
+                saldo += valor;
+                System.out.println("Saldo atualizado " + saldo);
+            } else if (opcao != 4) {
+                System.out.println("Opção invalida");
             }
         }
     }
